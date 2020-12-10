@@ -16,6 +16,8 @@ We have written a shell script to run our entire pipeline on 1-100 papers in an 
 
 *As a warning, a virtual environment will be set up that will take some time to load all the necessary packages. Depending on what you already have installed this could take upwards of 10 minutes. 
 
+## 1. 
+
 First, Text_Scraper.py..[insert high level overview of the whole pipeline]
 
 
