@@ -17,15 +17,15 @@ We have written a shell script to run our entire pipeline on 1-100 papers in an 
 *As a warning, a virtual environment will be set up that will take some time to load all the necessary packages. Depending on what you already have installed this could take upwards of 10 minutes. 
 
 ## 1. Extract XML Data from PDF (CERMINE)
-      First PDF data will be extracted in the form of an XML file using CERMINE github repository. Newly generated XML filed will be inputted into a new folder         in the working directory called XML. Conversion progress will be seen in your terminal
+First PDF data will be extracted in the form of an XML file using CERMINE github repository. Newly generated XML filed will be inputted into a new folder         in the working directory called XML. Conversion progress will be seen in your terminal
 ## 2. Clean XML data to text data (Text_Scraper.py)
-      XML data will then be filtered with a series of cleaners with BeautifulSoup that would remove any unecessary information besides text included in the             paper. Such removals would include header, footers, references, as well as unecessary tags in the way an XML file is written.
+XML data will then be filtered with a series of cleaners with BeautifulSoup that would remove any unecessary information besides text included in the             paper. Such removals would include header, footers, references, as well as unecessary tags in the way an XML file is written.
 ## 3. Relationship Extraction (Relation_Extraction.py)
-      Text data is then run through a series of primary steps to further orient the data for proper relationship extraction such as neural coreference                 resolution. Following this, taking advantage of Stanford NLP OpenIE relationship extraction software, subject, relationship, and object triples are               extracted from the paper as a whole. After extraction, to remove unecessary or simppligy noisy relationships, we utilize Python's NLTK library to                 lemmatize, remove stop words, as well as stem words to their root form. 
+Text data is then run through a series of primary steps to further orient the data for proper relationship extraction such as neural coreference                 resolution. Following this, taking advantage of Stanford NLP OpenIE relationship extraction software, subject, relationship, and object triples are               extracted from the paper as a whole. After extraction, to remove unecessary or simppligy noisy relationships, we utilize Python's NLTK library to                 lemmatize, remove stop words, as well as stem words to their root form. 
  ## 4. Knowledge Graph Creation
-      At the end of extraction, a visual representation of all this information is presented in a Knowledge Graph using Pygraphviz. Output files will be a .png
-      and a .dot file that can be loaded into Cytoscape an open source bioinformatics software platform for visualizing molecular interaction networks and
-      integrating with gene expression profiles and other state data. 
+At the end of extraction, a visual representation of all this information is presented in a Knowledge Graph using Pygraphviz. Output files will be a .png
+and a .dot file that can be loaded into Cytoscape an open source bioinformatics software platform for visualizing molecular interaction networks and
+integrating with gene expression profiles and other state data. 
 
 
 
