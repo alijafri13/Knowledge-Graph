@@ -2,7 +2,7 @@
 
 ## The Problem
 
-Cancer researchers that are trying to understand some of the background work done in regards to a specific condition need to sift through thousands of papers. One search for multiple myeloma returns more than 57,000 results on PubMed. 
+Cancer researchers that are trying to understand some of the background work done in regards to a specific condition need to sift through thousands of papers. One search for multiple myeloma returns more than 53,000 results on PubMed. 
 It is extremely time-intensive to try to understand the most important high-level links between the type of clinical trial, treatment, and result. Our solution applies data to this mass of information to ease the burden on the researcher.
 
 ## The Solution
