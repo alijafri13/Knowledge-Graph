@@ -24,7 +24,7 @@ XML data will then be filtered with a series of cleaners with BeautifulSoup that
 Text data is then run through a series of primary steps to further orient the data for proper relationship extraction such as neural coreference                 resolution. Following this, taking advantage of Stanford NLP OpenIE relationship extraction software, subject, relationship, and object triples are               extracted from the paper as a whole. After extraction, to remove unnecessary or simplify noisy relationships, we utilize Python's NLTK library to                 lemmatize, remove stop words, as well as stem words to their root form. 
 ### 4. Knowledge Graph Creation
 At the end of extraction, a visual representation of all this information is presented in a Knowledge Graph using Pygraphviz. Output files will be a .png
-and a .dot file that can be loaded into Cytoscape an open-source bioinformatics software platform for visualizing molecular interaction networks and
+and a .dot file that can be loaded into Cytoscape, an open-source bioinformatics software platform for visualizing molecular interaction networks and
 integrating with gene expression profiles and other state data. 
 
 
