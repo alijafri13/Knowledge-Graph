@@ -16,11 +16,17 @@ We have written a shell script to run our entire pipeline on 1-100 papers in an 
 
 *As a warning, a virtual environment will be set up that will take some time to load all the necessary packages. Depending on what you already have installed this could take upwards of 10 minutes. 
 
-# 1. Extract XML Data from PDF 
-      First PDF data will be extracted in the form of an XML file using CERMINE github repository. Newly generated XML filed will be inputted into a new folder         in the working directory called XML. 
-# 2. 
+## 1. Extract XML Data from PDF (CERMINE)
+      First PDF data will be extracted in the form of an XML file using CERMINE github repository. Newly generated XML filed will be inputted into a new folder         in the working directory called XML. Conversion progress will be seen in your terminal
+## 2. Clean XML data to text data (Text_Scraper.py)
+      XML data will then be filtered with a series of cleaners with BeautifulSoup that would remove any unecessary information besides text included in the             paper. Such removals would include header, footers, references, as well as unecessary tags in the way an XML file is written.
+## 3. Relationship Extraction (Relation_Extraction.py)
+      Text data is then run through a series of primary steps to further orient the data for proper relationship extraction such as neural coreference                 resolution. Following this, taking advantage of Stanford NLP OpenIE relationship extraction software, subject, relationship, and object triples are               extracted from the paper as a whole. After extraction, to remove unecessary or simppligy noisy relationships, we utilize Python's NLTK library to                 lemmatize, remove stop words, as well as stem words to their root form. 
+ ## 4. Knowledge Graph Creation
+      At the end of extraction, a visual representation of all this information is presented in a Knowledge Graph using Pygraphviz. Output files will be a .png
+      and a .dot file that can be loaded into Cytoscape an open source bioinformatics software platform for visualizing molecular interaction networks and
+      integrating with gene expression profiles and other state data. 
 
-First, Text_Scraper.py..[insert high level overview of the whole pipeline]
 
 
 ## Overview of Coding Functions
@@ -28,27 +34,3 @@ First, Text_Scraper.py..[insert high level overview of the whole pipeline]
 ### Flair: 
 Flair is a state-of-the-art Named Entity Recognition (NER) tagger for text data. Our project specifically uses HunFlair, which is used for tagging biomedical texts. It comes with models for genes/proteins, chemicals, diseases, species, and cell lines. HunFlair builds on pretrained domain-specific language models that were trained on roughly 3 million full texts and about 25 million abstracts from the biomedical domain. The labels tagged by Flair give extra context to the user using our knowledge graph to help understand the different connections between diseases, genes, species, etc.
 
-## Troubleshooting Fixes
-
-Commands for libraries/packages unable to be installed using !pip install:\
-brew install graphviz
-
-Special:\
-Use nltk.download() on a cell to install nltk packages (stem, corpus, tokenize) manually.
-
-
-Coref Resolution:\
-If warning pops up and kernel dies while running coref, paste following 2 blocks of code into terminal one at a time.
-
-!git clone https://github.com/huggingface/neuralcoref.git  
-!pip install -U spacy\
-!python -m spacy download en
-
-
-%cd neuralcoref\
-!pip install -r requirements.txt\
-!pip install -e
-
-Stanford Open IE
-Edited the CoreNLP server properties at this path: text-mining/knowledgegraph/kgvirtualenv/lib/python3.8/site-packages/openie/openie.py to 
-include max_char_length=500000, timeout=100000. This avoids the Stanford CoreNLP Server crashing.
