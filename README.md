@@ -11,7 +11,7 @@ We have built an automated pipeline that can take in hundreds of papers in PDF f
 
 ## Running the Entire Pipeline
 
-Ensure you have the following files in the same directory: ```main.sh```, ```Functions.py```, ```Relation_Extraction.py```, ```pip_libraries.txt```, ```All_Functions.ipynb```, ```Text_Scraper.py```. 
+Ensure you have the following files in the same directory: ```main.sh```, ```Functions.py```, ```Relation_Extraction.py```, ```pip_libraries.txt```, ```Functions.ipynb```, ```Text_Scraper.py```. 
 We have written a shell script to run our entire pipeline on 1-100 papers in an automated fashion. This is labeled ```main.sh```. In order to run the script, navigate to the directory which contains your pdfs in a folder labeled 'PDF'. Within this directory too should include all the scripts labeled above. In your terminal open this directory and run ```bash main.sh``` This will set off a chain of functions explained in further detail below. 
 
 *As a warning, a virtual environment will be set up that will take some time to load all the necessary packages. Depending on what you already have installed this could take upwards of 10 minutes. 
